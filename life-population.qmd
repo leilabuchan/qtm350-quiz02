@@ -1,0 +1,40 @@
+---
+title: "Life Expectancy and Population"
+---
+
+Shows the relationship between Life Expectancy and Population
+
+```{python}
+#| echo: false
+#| eval: true
+
+import pandas as pd
+from gapminder import gapminder
+import matplotlib.pyplot as plt
+
+# Rename 'lifeExp' to 'life_expectancy' and 'gdpPercap' to 'gdp_per_capita'
+gapminder = gapminder.rename(columns={'lifeExp': 'life_expectancy',
+                                      'pop': 'population_millions', 
+                                      'gdpPercap': 'gdp_per_capita'})
+
+# Convert population to millions
+gapminder['population_millions'] = gapminder['population_millions'] / 1_000_000
+
+# Create a new pandas DataFrame from the modified gapminder data
+gapminder_df = pd.DataFrame(gapminder)
+
+# Save the DataFrame as a CSV file
+gapminder_df.to_csv('gapminder.csv', index=False)
+
+plt.figure(figsize=(10,6))
+plt.scatter(gapminder['population_millions'], gapminder['life_expectancy'], alpha=0.7)
+plt.xscale('log')
+# Set labels and title
+plt.xlabel('Population (millions)')
+plt.ylabel('Life Expectancy')
+plt.title('Relationship between Life Expectancy and Population')
+
+# Show the plot
+plt.tight_layout()
+plt.show()
+```

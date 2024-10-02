@@ -1,0 +1,14 @@
+---
+title: "QTM350 Quiz02"
+---
+
+The Gapminder dataset contains information on 142 countries from 1952-2007 with 5 year intervals based on their country, continent, year, life-expectancy, population (in millions) and gdp per capita. 
+
+
+Explore the other pages on this website:
+
+- [About](about.qmd) - Learn more about this project!
+- [Life Expectancy and GDP per Capita](life-gdp.qmd) 
+- [Life Expectancy and Population](life-population.qmd) 
+- [Country Analysis](country.qmd)
+
